@@ -15,15 +15,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 */
-const { GraphQLString } = require("gatsby/graphql")
-const slash = require("slash")
+const { GraphQLString } = require('gatsby/graphql')
+const slash = require('slash')
 
 exports.setFieldsOnGraphQLNodeType = ({ type }) => {
   const pathRoot = slash(process.cwd())
 
-  // Check if they ahve the gatsby-plugin-mdx installed
   const hasMdx = !!type.nodes.find(
-    node => node.internal.owner === "gatsby-plugin-mdx"
+    node => node.internal.owner === 'gatsby-plugin-mdx'
   )
 
   if (hasMdx) {
@@ -34,10 +33,16 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
           return JSON.stringify(source.frontmatter)
         }
       },
+      rawMarkdownBody: {
+        type: GraphQLString,
+        resolve: source => {
+          return JSON.stringify(source.rawBody)
+        }
+      },
       fileRelativePath: {
         type: GraphQLString,
         resolve: source => {
-          return source.fileAbsolutePath.replace(pathRoot, "")
+          return source.fileAbsolutePath.replace(pathRoot, '')
         }
       }
     }
