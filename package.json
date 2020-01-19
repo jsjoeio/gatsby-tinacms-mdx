@@ -33,13 +33,21 @@
   "devDependencies": {
     "@tinacms/scripts": "^0.1.11",
     "@types/jest": "^24.0.15",
+    "@types/js-yaml": "^3.12.1",
     "jest": "^24.8.0",
-    "ts-jest": "^24.0.2"
+    "rollup": "^1.21.4",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.22.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
   },
   "dependencies": {
     "@tinacms/core": "^0.6.1-alpha.0",
     "@tinacms/form-builder": "^0.2.12-alpha.0",
     "gray-matter": "^4.0.2",
+    "js-yaml": "^3.13.1",
     "lodash.get": "^4.4.2",
     "slash": "^3.0.0",
     "tinacms": "^0.11.3-alpha.0"
