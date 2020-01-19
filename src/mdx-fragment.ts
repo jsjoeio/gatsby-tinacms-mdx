@@ -16,9 +16,12 @@ limitations under the License.
 
 */
 
-export interface RemarkNode {
-  fileRelativePath: string
-  rawFrontmatter: any
-  rawMarkdownBody: string
-  frontmatter?: any
-}
+import { graphql } from 'gatsby'
+
+export const tinaMdxFragment = graphql`
+  fragment TinaMdx on Mdx {
+    fileRelativePath
+    rawFrontmatter
+    rawMarkdownBody
+  }
+`

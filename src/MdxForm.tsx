@@ -17,17 +17,17 @@ limitations under the License.
 */
 
 import { FormOptions, Form } from 'tinacms'
-import { RemarkNode } from './remark-node'
-import { useLocalRemarkForm } from './useRemarkForm'
+import { MdxNode } from './mdx-node'
+import { useLocalMdx } from './useMdxForm'
 
-interface RemarkFormProps extends Partial<FormOptions<any>> {
-  remark: RemarkNode
-  render(renderProps: { form: Form; markdownRemark: any }): JSX.Element
+interface MdxFormProps extends Partial<FormOptions<any>> {
+  _mdx: MdxNode
+  render(renderProps: { form: Form; mdx: any }): JSX.Element
   timeout?: number
 }
 
-export function RemarkForm({ remark, render, ...options }: RemarkFormProps) {
-  const [markdownRemark, form] = useLocalRemarkForm(remark, options)
+export function MdxForm({ _mdx, render, ...options }: MdxFormProps) {
+  const [mdx, form] = useLocalMdx(_mdx, options)
 
-  return render({ form: form as Form, markdownRemark })
+  return render({ form: form as Form, mdx })
 }

@@ -16,12 +16,9 @@ limitations under the License.
 
 */
 
-import { graphql } from 'gatsby'
-
-export const tinaRemarkFragment = graphql`
-  fragment TinaRemark on Mdx {
-    fileRelativePath
-    rawFrontmatter
-    rawMarkdownBody
-  }
-`
+export interface MdxNode {
+  fileRelativePath: string
+  rawFrontmatter: any
+  rawMarkdownBody: string
+  frontmatter?: any
+}

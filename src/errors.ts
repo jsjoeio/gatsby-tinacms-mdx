@@ -16,47 +16,47 @@ limitations under the License.
 
 */
 
-export const ERROR_MISSING_REMARK_PATH =
-  'useRemarkForm(markdownRemark) Required attribute `fileRelativePath` was not found on `markdownRemark` node.' +
+export const ERROR_MISSING_MDX_PATH =
+  'useMdxForm(mdx) Required attribute `fileRelativePath` was not found on `mdx` node.' +
   `
 
-1. Check if the \`...TinaRemark\` fragment is included in the markdownRemark GraphQL query. For example:
+1. Check if the \`...TinaMdx\` fragment is included in the mdx GraphQL query. For example:
 
 export const pageQuery = graphql\`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      ...TinaRemark
+    mdx(fields: { slug: { eq: $slug } }) {
+      ...TinaMdx
       // etc...
     }
  }
 \`
   `
 
-export const ERROR_MISSING_REMARK_RAW_MARKDOWN =
-  'useRemarkForm(markdownRemark) Required attribute `rawMarkdownBody` was not found on `markdownRemark` node.' +
+export const ERROR_MISSING_MDX_RAW_MARKDOWN =
+  'useMdxForm(mdx) Required attribute `rawMarkdownBody` was not found on `mdx` node.' +
   `
 
-1. Check if the \`...TinaRemark\` fragment is included in the markdownRemark GraphQL query. For example:
+1. Check if the \`...TinaMdx\` fragment is included in the mdx GraphQL query. For example:
 
 export const pageQuery = graphql\`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      ...TinaRemark
+    mdx(fields: { slug: { eq: $slug } }) {
+      ...TinaMdx
       // etc...
     }
  }
 \`
   `
 
-export const ERROR_MISSING_REMARK_RAW_FRONTMATTER =
-  'useRemarkForm(markdownRemark) Required attribute `rawFrontmatter` was not found on `markdownRemark` node.' +
+export const ERROR_MISSING_MDX_RAW_FRONTMATTER =
+  'useMdxForm(mdx) Required attribute `rawFrontmatter` was not found on `mdx` node.' +
   `
 
-1. Check if the \`...TinaRemark\` fragment is included in the markdownRemark GraphQL query. For example:
+1. Check if the \`...TinaMdx\` fragment is included in the mdx GraphQL query. For example:
 
 export const pageQuery = graphql\`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       rawFrontmatter
       // etc...
     }
@@ -65,15 +65,15 @@ export const pageQuery = graphql\`
   `
 
 export const ERROR_INVALID_QUERY_NAME = (queryName: string) =>
-  `useRemarkForm(markdownRemark) '${queryName}' was not found on the top node of the graphql query` +
+  `useMdxForm(mdx) '${queryName}' was not found on the top node of the graphql query` +
   `
 
 1. Check if the '${queryName}' attribute is included in the GraphQL query. For example:
 
 export const pageQuery = graphql\`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      ...TinaRemark
+    mdx(fields: { slug: { eq: $slug } }) {
+      ...TinaMdx
       // etc...
     }
  }
@@ -82,14 +82,14 @@ export const pageQuery = graphql\`
 
    export const pageQuery = graphql\`
      query BlogPostBySlug($slug: String!) {
-       ${queryName}: markdownRemark(fields: { slug: { eq: $slug } }) {
-          ...TinaRemark
+       ${queryName}: mdx(fields: { slug: { eq: $slug } }) {
+          ...TinaMdx
        // etc...
        }
     }
 
-  then you can optionally use the 'queryName' option to specify a new property in place of 'markdownRemark':
+  then you can optionally use the 'queryName' option to specify a new property in place of 'mdx':
 
-    export const remarkForm(BlogPostTemplate, { queryName: ${queryName} })
+    export const mdxForm(BlogPostTemplate, { queryName: ${queryName} })
 \`
   `

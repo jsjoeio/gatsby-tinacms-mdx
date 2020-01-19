@@ -25,7 +25,7 @@ interface AnyField extends Field {
   [key: string]: any
 }
 
-interface CreateRemarkButtonOptions<FormShape, FrontmatterShape> {
+interface CreateMdxButtonOptions<FormShape, FrontmatterShape> {
   label: string
   fields: AnyField[]
   filename(form: FormShape): MaybePromise<string>
@@ -34,32 +34,32 @@ interface CreateRemarkButtonOptions<FormShape, FrontmatterShape> {
 }
 
 const MISSING_FILENAME_MESSAGE =
-  'createRemarkButton must be given `filename(form): string`'
+  'createMdxButton must be given `filename(form): string`'
 const MISSING_FIELDS_MESSAGE =
-  'createRemarkButton must be given `fields: Field[]` with at least 1 item'
+  'createMdxButton must be given `fields: Field[]` with at least 1 item'
 
 /**
  *
- * @deprecated in favour of calling `CreateRemarkPlugin` class directly.
+ * @deprecated in favour of calling `CreateMdxPlugin` class directly.
  */
-export function createRemarkButton<FormShape = any, FrontmatterShape = any>(
-  options: CreateRemarkButtonOptions<FormShape, FrontmatterShape>
+export function createMdxButton<FormShape = any, FrontmatterShape = any>(
+  options: CreateMdxButtonOptions<FormShape, FrontmatterShape>
 ): AddContentPlugin<FormShape> {
-  return new RemarkCreatorPlugin<FormShape, FrontmatterShape>(options)
+  return new MdxCreatorPlugin<FormShape, FrontmatterShape>(options)
 }
 
-export class RemarkCreatorPlugin<FormShape = any, FrontmatterShape = any>
+export class MdxCreatorPlugin<FormShape = any, FrontmatterShape = any>
   implements AddContentPlugin<FormShape> {
   __type: 'content-creator' = 'content-creator'
   name: AddContentPlugin<FormShape>['name']
   fields: AddContentPlugin<FormShape>['fields']
 
-  // Remark Specific
+  // Mdx Specific
   filename: (form: FormShape) => MaybePromise<string>
   frontmatter: (form: FormShape) => MaybePromise<FrontmatterShape>
   body: (form: any) => MaybePromise<string>
 
-  constructor(options: CreateRemarkButtonOptions<FormShape, FrontmatterShape>) {
+  constructor(options: CreateMdxButtonOptions<FormShape, FrontmatterShape>) {
     if (!options.filename) {
       console.error(MISSING_FILENAME_MESSAGE)
       throw new Error(MISSING_FILENAME_MESSAGE)

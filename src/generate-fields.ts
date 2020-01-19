@@ -16,17 +16,17 @@ limitations under the License.
 
 */
 
-import { RemarkNode } from './remark-node'
+import { MdxNode } from './mdx-node'
 import { Field } from 'tinacms'
 
-export function generateFields(post: RemarkNode): Field[] {
+export function generateFields(post: MdxNode): Field[] {
   const frontmatterFields = Object.keys(post.rawFrontmatter).map(key => ({
     component: 'text',
-    name: `rawFrontmatter.${key}`,
+    name: `rawFrontmatter.${key}`
   }))
 
   return [
     ...frontmatterFields,
-    { component: 'markdown', name: 'rawMarkdownBody' },
+    { component: 'markdown', name: 'rawMarkdownBody' }
   ]
 }
