@@ -15,4 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 */
-export declare const tinaMdxFragment: any;
+export declare const tinaMdxFragment: void;

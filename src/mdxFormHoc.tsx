@@ -26,8 +26,8 @@ interface MdxFormProps extends Partial<FormOptions<any>> {
   queryName?: string // Configure where we are pulling the initial form data from.
 }
 
-export function mdx(Component: any, options: MdxFormProps = {}) {
-  return function Mdx(props: any) {
+export function mdxForm(Component: any, options: MdxFormProps = {}) {
+  return function MdxForm(props: any) {
     const [mdx] = useLocalMdx(
       getMdx(props.data, options.queryName),
       options
@@ -38,7 +38,7 @@ export function mdx(Component: any, options: MdxFormProps = {}) {
 }
 
 export function liveMdx(Component: any, options: MdxFormProps = {}) {
-  return function Mdx(props: any) {
+  return function MdxForm(props: any) {
     const [mdx, form] = useLocalMdx(
       getMdx(props.data, options.queryName),
       options
@@ -61,8 +61,8 @@ export function liveMdx(Component: any, options: MdxFormProps = {}) {
   }
 }
 
-export function globalMdx(Component: any, options: MdxFormProps = {}) {
-  return function Mdx(props: any) {
+export function globalMdxForm(Component: any, options: MdxFormProps = {}) {
+  return function MdxForm(props: any) {
     const [mdx] = useGlobalMdx(
       getMdx(props.data, options.queryName),
       options

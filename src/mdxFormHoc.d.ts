@@ -20,7 +20,7 @@ import { FormOptions } from 'tinacms';
 interface MdxFormProps extends Partial<FormOptions<any>> {
     queryName?: string;
 }
-export declare function mdx(Component: any, options?: MdxFormProps): (props: any) => JSX.Element;
+export declare function mdxForm(Component: any, options?: MdxFormProps): (props: any) => JSX.Element;
 export declare function liveMdx(Component: any, options?: MdxFormProps): (props: any) => JSX.Element;
-export declare function globalMdx(Component: any, options?: MdxFormProps): (props: any) => JSX.Element;
+export declare function globalMdxForm(Component: any, options?: MdxFormProps): (props: any) => JSX.Element;
 export {};
